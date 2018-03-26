@@ -4,6 +4,8 @@ import SingleAlbum from './SingleAlbum';
 import Sidebar from './Sidebar';
 import Player from './Player';
 import { HashRouter, Route } from 'react-router-dom';
+import AllArtists from './AllArtists';
+import SingleArtist from './SingleArtist';
 
 export default class Main extends Component {
 
@@ -16,15 +18,18 @@ export default class Main extends Component {
       <HashRouter>
         <div id="main" className="container-fluid">
           <div className="col-xs-2">
-            <Sidebar deselectAlbum={this.deselectAlbum} />
-          </div>
+            <Sidebar />
+            </div>
 
-          <div className="col-xs-10">
+            <div className="col-xs-10">
             <Route exact path='/' render={(routeProps) => <AllAlbums selectAlbum={this.selectAlbum} {...routeProps} />} />
+
             <Route exact path='/albums' component={AllAlbums} />
             <Route exact path='/albums/:albumId' component={SingleAlbum} />
-          </div>
 
+            <Route exact path='/artists' component={AllArtists} />
+            <Route exact path='/artists/:artistId' component={SingleArtist} />
+          </div>
           <Player />
         </div>
       </HashRouter>
