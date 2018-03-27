@@ -60,3 +60,12 @@ footer {
 
 .album img {
   height: 300px; }
+
+.albumTitleContainer {
+  display: flex;
+  align-items: center;
+}
+
+#share-btn {
+  margin: 10px 0px 0px 10px;
+}

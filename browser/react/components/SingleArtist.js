@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import Songs from "./Songs.js";
 import AllAlbums from "./AllAlbums.js";
-import { Route, Link } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 
 export default class SingleArtist extends React.Component {
   constructor(props) {
@@ -40,10 +40,20 @@ export default class SingleArtist extends React.Component {
         <ul className="nav nav-tabs">
           {console.log(`this.props.match`, this.props.match)}
           <li>
-            <Link to={`${this.props.match.url}/albums`}>ALBUMS</Link>
+            <NavLink
+              to={`${this.props.match.url}/albums`}
+              activeClassName="active"
+            >
+              ALBUMS
+            </NavLink>
           </li>
           <li>
-            <Link to={`${this.props.match.url}/songs`}>SONGS</Link>
+            <NavLink
+              to={`${this.props.match.url}/songs`}
+              activeClassName="active"
+            >
+              SONGS
+            </NavLink>
           </li>
         </ul>
         <Route

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Songs from '../components/Songs';
 import axios from 'axios';
+// import { Email, Item, Span, A, renderEmail } from 'react-html-email'
+import Mailto from 'react-mailto';
 
 const fakeAlbum = {
   name: 'Yellow Submarine',
@@ -41,13 +43,36 @@ export default class SingleAlbum extends Component {
 
     const album = this.state.selectedAlbum;
 
-    //console.log(this.props);
-
-
     return (
       <div className="album">
-        <div>
+        <div className="albumTitleContainer">
           <h3>{ album.name }</h3>
+
+          <Mailto
+            email='recipient@address.com'
+            obfuscate={true}
+            headers={{
+              subject: 'Awesome album',
+              body: `Check this out:
+              localhost:1337/#${this.props.match.url}`
+            }}
+          >
+          {/*
+            Can also wrap btn in a link tag:
+            <a href="mailto:example@email.com?subject=Email%20Subject">
+          */}
+
+          <button
+            className="btn btn-default btn-xs"
+            id="share-btn"
+          >
+            <span className="glyphicon glyphicon-share"></span>
+          </button>
+          </Mailto>
+
+
+        </div>
+        <div>
           <img src={ album.imageUrl } className="img-thumbnail" />
         </div>
         <Songs songs={album.songs} />

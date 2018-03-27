@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function AllAlbums(props) {
   return (
@@ -8,8 +8,9 @@ export default function AllAlbums(props) {
       <div className="row">
         {props.albums.map(album => (
           <div className="col-xs-4" key={album.id}>
-            <Link
+            <NavLink
               className="thumbnail"
+              activeClassName="active"
               to={`albums/${album.id}`}
               // href="#"
               // onClick={() => this.props.selectAlbum(album.id)}
@@ -21,7 +22,7 @@ export default function AllAlbums(props) {
                 </h5>
                 <small>{album.songs.length} songs</small>
               </div>
-            </Link>
+            </NavLink>
           </div>
         ))}
       </div>

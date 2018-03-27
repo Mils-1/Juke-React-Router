@@ -3,7 +3,7 @@ import AllAlbums from "./AllAlbums";
 import SingleAlbum from "./SingleAlbum";
 import Sidebar from "./Sidebar";
 import Player from "./Player";
-import { HashRouter, Route } from "react-router-dom";
+import { Switch, HashRouter, Route } from "react-router-dom";
 import AllArtists from "./AllArtists";
 import SingleArtist from "./SingleArtist";
 import StatefulAlbums from "./StatefulAlbums";
@@ -17,6 +17,8 @@ export default function Main() {
         </div>
 
         <div className="col-xs-10">
+
+        <Switch>
           <Route exact path="/" component={StatefulAlbums} />
 
           <Route exact path="/albums" component={StatefulAlbums} />
@@ -24,6 +26,10 @@ export default function Main() {
 
           <Route exact path="/artists" component={AllArtists} />
           <Route path="/artists/:artistId" component={SingleArtist} />
+
+          <Route render={() => <h1>Page Not Found</h1>} />
+        </Switch>
+
         </div>
         <Player />
       </div>
