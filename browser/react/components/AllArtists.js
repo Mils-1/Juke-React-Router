@@ -19,7 +19,6 @@ export default class AllArtists extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <h3>Artists</h3>
